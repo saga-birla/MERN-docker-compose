@@ -1,0 +1,28 @@
+###Build-env###
+FROM node:18.9.1-slim AS builder
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+RUN npm install vite
+
+###Runtime-env####
+
+FROM gcr.io/distroless/nodejs18
+
+WORKDIR /app
+
+COPY --from=builder /app /app
+
+EXPOSE 5173
+
+# CMD [ "vite", "preview", "--host", "0.0.0.0" ]
+
+CMD ["node_modules/vite/bin/vite.js", "--host", "0.0.0.0"]

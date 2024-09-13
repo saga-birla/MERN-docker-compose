@@ -1,0 +1,37 @@
+services:
+  frontend:
+    build:
+      context: ./mern/frontend
+      dockerfile: Distroless-Dockerfile-frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - mern-network
+  
+  backend:
+    build:
+      context: ./mern/backend
+      dockerfile: Dockerfile
+    ports:
+      - "5050:5050"
+    networks:
+      - mern-network
+    depends_on:
+      - mongodb
+  
+  mongodb:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-network
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  mern-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
