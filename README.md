@@ -27,6 +27,6 @@ npm run dev
 `docker compose up -d`
 
 
-## Used Distroless images in multi-staging Dockerfile to reduse the size of final image and Reduced Attack Surface
-![image](https://github.com/user-attachments/assets/35bb2d03-4f78-4228-ac25-2db5600f6e75)
+## Used Distroless images in multi-staging Dockerfile to reduse the size of final image (from 1.79 GB to 213 MB)  and Reduced Attack Surface
+![image](https://github.com/user-attachments/assets/35bb2d03-4f78-4228-ac25-2db5600f6e75) 
 
