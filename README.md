@@ -4,7 +4,7 @@
 
 - Install `npm`
 
-#### Start Server:
+#### Start Server/backend:
 
 ```
 cd mern/server
@@ -12,7 +12,7 @@ npm install
 npm start
 ```
 
-#### Start Client
+#### Start Client/frontend (on port 5173):
 
 ```
 cd mern/client
